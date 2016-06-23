@@ -11,16 +11,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
 
-
 public class JSonUtility {
 
 	public static void main(String[] args) {
-		//insertToJSon();
-		readFromJson();
+		// insertToJSon();
+		readFromJson("171");
 	}
-	
-	public static void readFromJson(){
-		
+
+	public static void readFromJson(String cityCode) {
+
 		JSONParser parser = new JSONParser();
 
 		try {
@@ -29,18 +28,18 @@ public class JSonUtility {
 
 			JSONObject jsonObject = (JSONObject) obj;
 
-			Integer code = (Integer) jsonObject.get("code");
-			System.out.println(code);
-
-			String city = (String) jsonObject.get("city");
+			String city = (String) jsonObject.get(cityCode);
 			System.out.println(city);
 
+			/*String city = (String) jsonObject.get("city");
+			System.out.println(city);*/
+
 			// loop array
-		/*	JSONArray msg = (JSONArray) jsonObject.get("messages");
-			Iterator<Object> iterator = msg.iterator();
-			while (iterator.hasNext()) {
-				System.out.println(iterator.next());
-			}*/
+			/*
+			 * JSONArray msg = (JSONArray) jsonObject.get("messages");
+			 * Iterator<Object> iterator = msg.iterator(); while
+			 * (iterator.hasNext()) { System.out.println(iterator.next()); }
+			 */
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
