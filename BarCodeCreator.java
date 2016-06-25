@@ -1,4 +1,4 @@
-package ir.serajsamaneh.lms.model.barcode;
+package model.barcode;
 
 import java.io.File;
 import java.io.FileOutputStream;
