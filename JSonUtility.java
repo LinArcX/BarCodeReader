@@ -1,45 +1,23 @@
 package ir.serajsamaneh.lms.model.barcode;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 import net.minidev.json.parser.JSONParser;
 import net.minidev.json.parser.ParseException;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Iterator;
 
 public class JSonUtility {
 
-	public static void main(String[] args) {
-		// insertToJSon();
-		readFromJson("171");
-	}
-
-	public static void readFromJson(String cityCode) {
-
+	public static String readFromJson(String cityCode) {
 		JSONParser parser = new JSONParser();
-
+		String city = "";
 		try {
-
-			Object obj = parser.parse(new FileReader("C:\\Users\\salari\\Desktop\\test.json"));
-
+			Object obj = parser.parse(new FileReader("C:\\Users\\salari\\Desktop\\city.json"));
 			JSONObject jsonObject = (JSONObject) obj;
-
-			String city = (String) jsonObject.get(cityCode);
-			System.out.println(city);
-
-			/*String city = (String) jsonObject.get("city");
-			System.out.println(city);*/
-
-			// loop array
-			/*
-			 * JSONArray msg = (JSONArray) jsonObject.get("messages");
-			 * Iterator<Object> iterator = msg.iterator(); while
-			 * (iterator.hasNext()) { System.out.println(iterator.next()); }
-			 */
+			city = (String) jsonObject.get(cityCode);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -47,7 +25,10 @@ public class JSonUtility {
 			e.printStackTrace();
 		} catch (ParseException e) {
 			e.printStackTrace();
+		} catch (ClassCastException e) {
+			System.out.println("The City Is not Found!");
 		}
+		return city;
 	}
 
 	private static void insertToJSon() {
