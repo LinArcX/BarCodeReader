@@ -9,13 +9,12 @@ encode and decode every BarCode you Want!
 5. Submit a pull request :D
 
 
-## VisitUs
-[bbs.archusers.ir](http://bbs.archusers.ir/index.php)
+
 ## Credits
 !["I.AUC"](http://uupload.ir/files/8jwe_mrrobot.jpg "I.AUC")
 
-LinArcX
-Blog:[stack.blog.ir](http://stack.blog.ir/)
+
+
 
 E-Mail:linarcx@gmail.com
 ## License
